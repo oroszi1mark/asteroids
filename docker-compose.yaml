@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  game:
+    build: .
+    container_name: bootdev_pygame_asteroids
+    environment:
+      - DISPLAY=host.docker.internal:0 # Forward X11 over 127.0.0.1
+      - SDL_VIDEODRIVER=x11
+      - XDG_RUNTIME_DIR=/tmp
+      - XAUTHORITY=/root/.Xauthority
+    volumes:
+      - ./:/app:rw
+      - ~/.Xauthority:/root/.Xauthority:ro
+    working_dir: /app
+    command: tail -f /dev/null # to keep container running
