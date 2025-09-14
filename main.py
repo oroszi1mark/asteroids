@@ -36,12 +36,16 @@ def main():
                 return
         screen.fill("black")
         updatable.update(delta_time)
-        for obj in asteroids:
-            if obj.check_collision(player) == True:
+        for ast in asteroids:
+            if ast.check_collision(player) == True:
                 print("Game over!")
                 exit()
-        for obj in drawable:
-            obj.draw(screen)
+            for shot in shots:
+                if ast.check_collision(shot) == True:
+                    ast.kill()
+                    shot.kill()
+        for ast in drawable:
+            ast.draw(screen)
         pygame.display.flip()
         delta_time = clock.tick(60) / 1000
 
