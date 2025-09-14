@@ -42,7 +42,7 @@ def main():
                 exit()
             for shot in shots:
                 if ast.check_collision(shot) == True:
-                    ast.kill()
+                    ast.split()
                     shot.kill()
         for ast in drawable:
             ast.draw(screen)
