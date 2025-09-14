@@ -8,7 +8,7 @@
 ```sh
 xhost + 127.0.0.1
 ```
-1. (To revoke permissions, run the following.)
+6. (To revoke permissions, run the following.)
 ```sh
 xhost - 127.0.0.1
 ```
